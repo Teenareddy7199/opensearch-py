@@ -1,5 +1,5 @@
 # OpenSearch Client
 
 ```{eval-rst}
-.. autoclass:: opensearchpy.OpenSearch
+.. autoclass:: newopensearchpy.OpenSearch
 ```

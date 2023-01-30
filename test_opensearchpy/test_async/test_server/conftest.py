@@ -29,8 +29,8 @@ import asyncio
 
 import pytest
 
-import opensearchpy
-from opensearchpy.helpers.test import OPENSEARCH_URL
+import newopensearchpy
+from newopensearchpy.helpers.test import OPENSEARCH_URL
 
 from ...utils import wipe_cluster
 
@@ -41,11 +41,11 @@ pytestmark = pytest.mark.asyncio
 async def async_client():
     client = None
     try:
-        if not hasattr(opensearchpy, "AsyncOpenSearch"):
+        if not hasattr(newopensearchpy, "AsyncOpenSearch"):
             pytest.skip("test requires 'AsyncOpenSearch'")
 
         kw = {"timeout": 3}
-        client = opensearchpy.AsyncOpenSearch(OPENSEARCH_URL, **kw)
+        client = newopensearchpy.AsyncOpenSearch(OPENSEARCH_URL, **kw)
 
         # wait for yellow status
         for _ in range(100):

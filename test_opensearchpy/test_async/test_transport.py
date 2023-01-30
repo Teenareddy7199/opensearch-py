@@ -34,10 +34,10 @@ import json
 import pytest
 from mock import patch
 
-from opensearchpy import AsyncTransport
-from opensearchpy.connection import Connection
-from opensearchpy.connection_pool import DummyConnectionPool
-from opensearchpy.exceptions import ConnectionError, TransportError
+from newopensearchpy import AsyncTransport
+from newopensearchpy.connection import Connection
+from newopensearchpy.connection_pool import DummyConnectionPool
+from newopensearchpy.exceptions import ConnectionError, TransportError
 
 pytestmark = pytest.mark.asyncio
 
@@ -393,7 +393,7 @@ class TestTransport:
         assert 1 == len(t.connection_pool.connections)
         assert "http://1.1.1.1:123" == t.get_connection().host
 
-    @patch("opensearchpy._async.transport.AsyncTransport.sniff_hosts")
+    @patch("newopensearchpy._async.transport.AsyncTransport.sniff_hosts")
     async def test_sniff_on_fail_failing_does_not_prevent_retires(self, sniff_hosts):
         sniff_hosts.side_effect = [TransportError("sniff failed")]
         t = AsyncTransport(

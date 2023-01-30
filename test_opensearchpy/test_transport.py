@@ -33,10 +33,10 @@ import time
 
 from mock import patch
 
-from opensearchpy.connection import Connection
-from opensearchpy.connection_pool import DummyConnectionPool
-from opensearchpy.exceptions import ConnectionError, TransportError
-from opensearchpy.transport import Transport, get_host_info
+from newopensearchpy.connection import Connection
+from newopensearchpy.connection_pool import DummyConnectionPool
+from newopensearchpy.exceptions import ConnectionError, TransportError
+from newopensearchpy.transport import Transport, get_host_info
 
 from .test_cases import TestCase
 
@@ -355,7 +355,7 @@ class TestTransport(TestCase):
         self.assertEqual(1, len(t.connection_pool.connections))
         self.assertEqual("http://1.1.1.1:123", t.get_connection().host)
 
-    @patch("opensearchpy.transport.Transport.sniff_hosts")
+    @patch("newopensearchpy.transport.Transport.sniff_hosts")
     def test_sniff_on_fail_failing_does_not_prevent_retires(self, sniff_hosts):
         sniff_hosts.side_effect = [TransportError("sniff failed")]
         t = Transport(

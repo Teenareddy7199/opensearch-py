@@ -29,7 +29,7 @@ from __future__ import unicode_literals
 
 import warnings
 
-from opensearchpy.client import OpenSearch, _normalize_hosts
+from newopensearchpy.client import OpenSearch, _normalize_hosts
 
 from ..test_cases import OpenSearchTestCase, TestCase
 

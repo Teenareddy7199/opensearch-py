@@ -2,6 +2,9 @@
 __pycache__/
 *.py[cod]
 *$py.class
+.*.swp
+*~
+*.py[co]
 
 # C extensions
 *.so
@@ -26,6 +29,9 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
+*.egg-info
+dist
+build
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
@@ -142,3 +148,11 @@ cython_debug/
 test_opensearch/cover
 test_opensearch/local.py
 .ci/output
+
+
+junit.xml
+docs/_build
+.cache
+venv
+.idea
+.pytest_cache

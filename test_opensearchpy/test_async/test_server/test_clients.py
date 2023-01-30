@@ -59,7 +59,7 @@ class TestYarlMissing:
         self, async_client, monkeypatch
     ):
         # This is a defensive test case for if aiohttp suddenly stops using yarl.
-        from opensearchpy._async import http_aiohttp
+        from newopensearchpy._async import http_aiohttp
 
         monkeypatch.setattr(http_aiohttp, "yarl", False)
 

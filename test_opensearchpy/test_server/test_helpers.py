@@ -27,8 +27,8 @@
 
 from mock import patch
 
-from opensearchpy import TransportError, helpers
-from opensearchpy.helpers import ScanError
+from newopensearchpy import TransportError, helpers
+from newopensearchpy.helpers import ScanError
 
 from ..test_cases import SkipTest
 from . import OpenSearchTestCase
@@ -548,7 +548,7 @@ class TestScan(OpenSearchTestCase):
             )
             self.assertEqual(client_mock.scroll.call_args[1]["sort"], "asc")
 
-    @patch("opensearchpy.helpers.actions.logger")
+    @patch("newopensearchpy.helpers.actions.logger")
     def test_logger(self, logger_mock):
         bulk = []
         for x in range(4):

@@ -1,5 +1,5 @@
 # Features Client
 
 ```{eval-rst}
-.. autoclass:: opensearchpy.client.features.FeaturesClient
+.. autoclass:: newopensearchpy.client.features.FeaturesClient
 ```

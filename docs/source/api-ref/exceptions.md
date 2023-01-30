@@ -1,57 +1,57 @@
 # exceptions
 
 ```{eval-rst}
-.. autoclass:: opensearchpy.AuthenticationException
+.. autoclass:: newopensearchpy.AuthenticationException
 ```
 
 ```{eval-rst}
-.. autoclass:: opensearchpy.AuthorizationException
+.. autoclass:: newopensearchpy.AuthorizationException
 ```
 
 ```{eval-rst}
-.. autoclass:: opensearchpy.ConflictError
+.. autoclass:: newopensearchpy.ConflictError
 ```
 
 ```{eval-rst}
-.. autoclass:: opensearchpy.ConnectionError
+.. autoclass:: newopensearchpy.ConnectionError
 ```
 
 ```{eval-rst}
-.. autoclass:: opensearchpy.ConnectionTimeout
+.. autoclass:: newopensearchpy.ConnectionTimeout
 ```
 
 ```{eval-rst}
-.. autoclass:: opensearchpy.ImproperlyConfigured
+.. autoclass:: newopensearchpy.ImproperlyConfigured
 ```
 
 ```{eval-rst}
-.. autoclass:: opensearchpy.NotFoundError
+.. autoclass:: newopensearchpy.NotFoundError
 ```
 
 ```{eval-rst}
-.. autoclass:: opensearchpy.OpenSearchDeprecationWarning
+.. autoclass:: newopensearchpy.OpenSearchDeprecationWarning
 ```
 
 ```{eval-rst}
-.. autoclass:: opensearchpy.OpenSearchException
+.. autoclass:: newopensearchpy.OpenSearchException
 ```
 
 ```{eval-rst}
-.. autoclass:: opensearchpy.OpenSearchWarning
+.. autoclass:: newopensearchpy.OpenSearchWarning
 ```
 
 ```{eval-rst}
-.. autoclass:: opensearchpy.RequestError
+.. autoclass:: newopensearchpy.RequestError
 ```
 
 ```{eval-rst}
-.. autoclass:: opensearchpy.SerializationError
+.. autoclass:: newopensearchpy.SerializationError
 ```
 
 ```{eval-rst}
-.. autoclass:: opensearchpy.SSLError
+.. autoclass:: newopensearchpy.SSLError
 ```
 
 ```{eval-rst}
-.. autoclass:: opensearchpy.TransportError
+.. autoclass:: newopensearchpy.TransportError
 ```

@@ -1,5 +1,5 @@
 # Snapshot Client
 
 ```{eval-rst}
-.. autoclass:: opensearchpy.client.snapshot.SnapshotClient
+.. autoclass:: newopensearchpy.client.snapshot.SnapshotClient
 ```

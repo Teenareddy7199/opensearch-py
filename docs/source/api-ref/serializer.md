@@ -1,5 +1,5 @@
 # serializer
 
 ```{eval-rst}
-.. autoclass:: opensearchpy.JSONSerializer
+.. autoclass:: newopensearchpy.JSONSerializer
 ```

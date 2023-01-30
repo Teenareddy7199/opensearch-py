@@ -1,7 +1,7 @@
 ARG PYTHON_VERSION=3.8
 FROM python:${PYTHON_VERSION}
 
-WORKDIR /code/opensearch-py
+WORKDIR /code1copy/opensearch_py_new
 COPY dev-requirements.txt .
 RUN python -m pip install \
     -U --no-cache-dir \

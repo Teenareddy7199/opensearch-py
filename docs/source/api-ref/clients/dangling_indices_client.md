@@ -1,5 +1,5 @@
 # Dangling Indices Client
 
 ```{eval-rst}
-.. autoclass:: opensearchpy.client.dangling_indices.DanglingIndicesClient
+.. autoclass:: newopensearchpy.client.dangling_indices.DanglingIndicesClient
 ```

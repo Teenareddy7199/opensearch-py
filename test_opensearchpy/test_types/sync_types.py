@@ -27,8 +27,13 @@
 
 from typing import Any, Dict, Generator
 
-from opensearchpy import ConnectionPool, OpenSearch, RequestsHttpConnection, Transport
-from opensearchpy.helpers import bulk, reindex, scan, streaming_bulk
+from newopensearchpy import (
+    ConnectionPool,
+    OpenSearch,
+    RequestsHttpConnection,
+    Transport,
+)
+from newopensearchpy.helpers import bulk, reindex, scan, streaming_bulk
 
 client = OpenSearch(
     [{"host": "localhost", "port": 9443}],

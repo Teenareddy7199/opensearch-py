@@ -32,8 +32,8 @@ import time
 import mock
 import pytest
 
-from opensearchpy import OpenSearch, helpers
-from opensearchpy.serializer import JSONSerializer
+from newopensearchpy import OpenSearch, helpers
+from newopensearchpy.serializer import JSONSerializer
 
 from .test_cases import TestCase
 
@@ -57,7 +57,7 @@ mock_process_bulk_chunk.call_count = 0
 
 class TestParallelBulk(TestCase):
     @mock.patch(
-        "opensearchpy.helpers.actions._process_bulk_chunk",
+        "newopensearchpy.helpers.actions._process_bulk_chunk",
         side_effect=mock_process_bulk_chunk,
     )
     def test_all_chunks_sent(self, _process_bulk_chunk):
@@ -68,7 +68,7 @@ class TestParallelBulk(TestCase):
 
     @pytest.mark.skip
     @mock.patch(
-        "opensearchpy.helpers.actions._process_bulk_chunk",
+        "newopensearchpy.helpers.actions._process_bulk_chunk",
         # make sure we spend some time in the thread
         side_effect=lambda *a: [
             (True, time.sleep(0.001) or threading.current_thread().ident)

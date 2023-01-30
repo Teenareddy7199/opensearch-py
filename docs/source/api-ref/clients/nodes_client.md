@@ -1,5 +1,5 @@
 # Nodes Client
 
 ```{eval-rst}
-.. autoclass:: opensearchpy.client.nodes.NodesClient
+.. autoclass:: newopensearchpy.client.nodes.NodesClient
 ```

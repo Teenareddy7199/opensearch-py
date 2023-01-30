@@ -1,5 +1,5 @@
 # Remote Client
 
 ```{eval-rst}
-.. autoclass:: opensearchpy.client.remote.RemoteClient
+.. autoclass:: newopensearchpy.client.remote.RemoteClient
 ```

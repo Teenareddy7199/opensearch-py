@@ -1,13 +1,13 @@
 # connection 
 
 ```{eval-rst}
-.. autoclass:: opensearchpy.Connection
+.. autoclass:: newopensearchpy.Connection
 ```
 
 ```{eval-rst}
-.. autoclass:: opensearchpy.RequestsHttpConnection
+.. autoclass:: newopensearchpy.RequestsHttpConnection
 ```
 
 ```{eval-rst}
-.. autoclass:: opensearchpy.Urllib3HttpConnection
+.. autoclass:: newopensearchpy.Urllib3HttpConnection
 ```

@@ -31,7 +31,7 @@ from os.path import abspath, dirname, join
 
 from setuptools import find_packages, setup
 
-package_name = "opensearch-py"
+package_name = "newopensearchpy"
 base_dir = abspath(dirname(__file__))
 
 with open(join(base_dir, package_name.replace("-", ""), "_version.py")) as f:
@@ -48,11 +48,14 @@ packages = [
     for package in find_packages(where=".", exclude=("test_opensearchpy*",))
     if package == module_dir or package.startswith(module_dir + ".")
 ]
-
 install_requires = [
     "urllib3>=1.21.1, <2",
     "certifi",
     "requests>=2.4.0, <3.0.0",
+    "six",
+    "python-dateutil",
+    # ipaddress is included in stdlib since python 3.3
+    'ipaddress; python_version<"3.3"',
 ]
 tests_require = [
     "requests>=2.0.0, <3.0.0",
@@ -61,6 +64,8 @@ tests_require = [
     "pyyaml",
     "pytest",
     "pytest-cov",
+    "pytest-mock<4.0.0",
+    "pytz",
     "botocore;python_version>='3.6'",
 ]
 async_require = ["aiohttp>=3,<4"]
@@ -70,9 +75,9 @@ generate_require = ["black", "jinja2"]
 
 setup(
     name=package_name,
-    description="Python low-level client for OpenSearch",
+    description="Python client for OpenSearch",
     license="Apache-2.0",
-    url="https://github.com/opensearch-project/opensearch-py",
+    url="https://github.com/opensearch-project/opensearch_py_new",
     long_description=long_description,
     long_description_content_type="text/markdown",
     version=package_version,
@@ -82,11 +87,11 @@ setup(
     maintainer_email="axeo@aiven.io, dez@aiven.io, rushi.agr@gmail.com, shephalm@amazon.com",
     project_urls={
         "Documentation": "https://opensearch.org/docs/clients/python",
-        "Source Code": "https://github.com/opensearch-project/opensearch-py",
-        "Issue Tracker": "https://github.com/opensearch-project/opensearch-py/issues",
+        "Source Code": "https://github.com/opensearch-project/opensearch_py_new",
+        "Issue Tracker": "https://github.com/opensearch-project/opensearch_py_new/issues",
     },
     packages=packages,
-    package_data={"opensearchpy": ["py.typed", "*.pyi"]},
+    package_data={"newopensearchpy": ["py.typed", "*.pyi"]},
     include_package_data=True,
     zip_safe=False,
     classifiers=[

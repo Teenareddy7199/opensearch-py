@@ -29,7 +29,7 @@ from collections import defaultdict
 from unittest import SkipTest  # noqa: F401
 from unittest import TestCase
 
-from opensearchpy import OpenSearch
+from newopensearchpy import OpenSearch
 
 
 class DummyTransport(object):

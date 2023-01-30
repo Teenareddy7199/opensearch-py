@@ -1,5 +1,5 @@
 # transport
 
 ```{eval-rst}
-.. autoclass:: opensearchpy.Transport
+.. autoclass:: newopensearchpy.Transport
 ```

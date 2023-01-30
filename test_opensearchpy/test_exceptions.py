@@ -25,7 +25,7 @@
 #  under the License.
 
 
-from opensearchpy.exceptions import TransportError
+from newopensearchpy.exceptions import TransportError
 
 from .test_cases import TestCase
 

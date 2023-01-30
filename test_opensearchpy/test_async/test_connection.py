@@ -38,10 +38,10 @@ import pytest
 from mock import patch
 from multidict import CIMultiDict
 
-from opensearchpy import AIOHttpConnection, __versionstr__
-from opensearchpy.compat import reraise_exceptions
-from opensearchpy.connection import Connection
-from opensearchpy.exceptions import ConnectionError
+from newopensearchpy import AIOHttpConnection, __versionstr__
+from newopensearchpy.compat import reraise_exceptions
+from newopensearchpy.connection import Connection
+from newopensearchpy.exceptions import ConnectionError
 
 pytestmark = pytest.mark.asyncio
 
@@ -148,7 +148,7 @@ class TestAIOHttpConnection:
 
     def test_default_user_agent(self):
         con = AIOHttpConnection()
-        assert con._get_default_user_agent() == "opensearch-py/%s (Python %s)" % (
+        assert con._get_default_user_agent() == "opensearch_py_new/%s (Python %s)" % (
             __versionstr__,
             python_version(),
         )
@@ -266,7 +266,7 @@ class TestAIOHttpConnection:
         AIOHttpConnection(use_ssl=True, verify_certs=False)
         load_verify_locations.assert_not_called()
 
-    @patch("opensearchpy.connection.base.logger")
+    @patch("newopensearchpy.connection.base.logger")
     async def test_uncompressed_body_logged(self, logger):
         con = await self._get_mock_connection(connection_params={"http_compress": True})
         await con.perform_request("GET", "/", body=b'{"example": "body"}')

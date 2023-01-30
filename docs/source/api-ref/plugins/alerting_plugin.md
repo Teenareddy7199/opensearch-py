@@ -1,5 +1,5 @@
 # Alerting Plugin
 
 ```{eval-rst}
-.. autoclass:: opensearchpy.plugins.alerting.AlertingClient
+.. autoclass:: newopensearchpy.plugins.alerting.AlertingClient
 ```

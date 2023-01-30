@@ -146,7 +146,7 @@ class Module:
     def filepath(self):
         return (
             CODE_ROOT
-            / f"opensearchpy/_async/client/{self.namespace}.py{'i' if self.is_pyi else ''}"
+            / f"newopensearchpy/_async/client/{self.namespace}.py{'i' if self.is_pyi else ''}"
         )
 
 
@@ -186,8 +186,8 @@ class API:
             # Try setting doc refs like 'current' and 'master' to our branches ref.
             if BRANCH_NAME is not None:
                 revised_url = re.sub(
-                    "/opensearchpy/reference/[^/]+/",
-                    f"/opensearchpy/reference/{BRANCH_NAME}/",
+                    "/newopensearchpy/reference/[^/]+/",
+                    f"/newopensearchpy/reference/{BRANCH_NAME}/",
                     self.doc_url,
                 )
                 if is_valid_url(revised_url):
@@ -341,7 +341,7 @@ def download_artifact(version):
         "GET", f"https://artifacts-api.elastic.co/v1/versions/{version}"
     )
     packages = json.loads(resp.data)["version"]["builds"][0]["projects"][
-        "opensearchpy"
+        "newopensearchpy"
     ]["packages"]
     for package in packages:
         if re.match(r"^rest-resources-zip-.*\.zip$", package):
@@ -412,14 +412,14 @@ def dump_modules(modules):
     }
     rules = [
         unasync.Rule(
-            fromdir="/opensearchpy/_async/client/",
-            todir="/opensearchpy/client/",
+            fromdir="/newopensearchpy/_async/client/",
+            todir="/newopensearchpy/client/",
             additional_replacements=additional_replacements,
         ),
     ]
 
     filepaths = []
-    for root, _, filenames in os.walk(CODE_ROOT / "opensearchpy/_async"):
+    for root, _, filenames in os.walk(CODE_ROOT / "newopensearchpy/_async"):
         for filename in filenames:
             if filename.rpartition(".")[-1] in (
                 "py",
@@ -428,7 +428,7 @@ def dump_modules(modules):
                 filepaths.append(os.path.join(root, filename))
 
     unasync.unasync_files(filepaths, rules)
-    blacken(CODE_ROOT / "opensearchpy")
+    blacken(CODE_ROOT / "newopensearchpy")
 
 
 if __name__ == "__main__":

@@ -35,8 +35,8 @@ import warnings
 
 import pytest
 
-from opensearchpy import OpenSearchWarning
-from opensearchpy.helpers.test import _get_version
+from newopensearchpy import OpenSearchWarning
+from newopensearchpy.helpers.test import _get_version
 
 from ...test_server.test_rest_api_spec import (
     IMPLEMENTED_FEATURES,

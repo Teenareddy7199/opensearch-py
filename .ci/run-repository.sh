@@ -19,15 +19,15 @@ echo -e "\033[34;1mINFO:\033[0m TEST_SUITE ${TEST_SUITE}\033[0m"
 echo -e "\033[34;1mINFO:\033[0m PYTHON_VERSION ${PYTHON_VERSION}\033[0m"
 echo -e "\033[34;1mINFO:\033[0m PYTHON_CONNECTION_CLASS ${PYTHON_CONNECTION_CLASS}\033[0m"
 
-echo -e "\033[1m>>>>> Build [opensearch-project/opensearch-py container] >>>>>>>>>>>>>>>>>>>>>>>>>>>>>\033[0m"
+echo -e "\033[1m>>>>> Build [opensearch-project/opensearch_py_new container] >>>>>>>>>>>>>>>>>>>>>>>>>>>>>\033[0m"
 
 docker build \
        --file .ci/Dockerfile.client \
-       --tag opensearch-project/opensearch-py \
+       --tag opensearch-project/opensearch_py_new \
        --build-arg PYTHON_VERSION=${PYTHON_VERSION} \
        .
 
-echo -e "\033[1m>>>>> Run [opensearch-project/opensearch-py container] >>>>>>>>>>>>>>>>>>>>>>>>>>>>>\033[0m"
+echo -e "\033[1m>>>>> Run [opensearch-project/opensearch_py_new container] >>>>>>>>>>>>>>>>>>>>>>>>>>>>>\033[0m"
 
 mkdir -p junit
 docker run \
@@ -38,7 +38,7 @@ docker run \
   --env "TEST_SUITE=${TEST_SUITE}" \
   --env "PYTHON_CONNECTION_CLASS=${PYTHON_CONNECTION_CLASS}" \
   --env "TEST_TYPE=server" \
-  --name opensearch-py \
+  --name opensearch_py_new \
   --rm \
-  opensearch-project/opensearch-py \
+  opensearch-project/opensearch_py_new \
   python setup.py test

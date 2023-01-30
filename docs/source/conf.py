@@ -78,7 +78,7 @@ html_show_sphinx = False
 html_context = {
     "display_github": True,
     "github_user": "opensearch-project",
-    "github_repo": "opensearch-py",
+    "github_repo": "opensearch_py_new",
     "github_version": "main/docs/source/",
 }
 

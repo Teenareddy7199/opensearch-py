@@ -34,8 +34,8 @@ import asyncio
 import pytest
 from mock import MagicMock, patch
 
-from opensearchpy import TransportError, helpers
-from opensearchpy.helpers import ScanError
+from newopensearchpy import TransportError, helpers
+from newopensearchpy.helpers import ScanError
 
 pytestmark = pytest.mark.asyncio
 
@@ -583,7 +583,7 @@ class TestScan(object):
                     scroll_mock.assert_not_called()
                     clear_mock.assert_not_called()
 
-    @patch("opensearchpy._async.helpers.logger")
+    @patch("newopensearchpy._async.helpers.logger")
     async def test_logger(self, logger_mock, async_client, scan_teardown):
         bulk = []
         for x in range(4):

@@ -1,13 +1,13 @@
 # connection_pool
 
 ```{eval-rst}
-.. autoclass:: opensearchpy.ConnectionPool
+.. autoclass:: newopensearchpy.ConnectionPool
 ```
 
 ```{eval-rst}
-.. autoclass:: opensearchpy.ConnectionSelector
+.. autoclass:: newopensearchpy.ConnectionSelector
 ```
 
 ```{eval-rst}
-.. autoclass:: opensearchpy.RoundRobinSelector
+.. autoclass:: newopensearchpy.RoundRobinSelector
 ```

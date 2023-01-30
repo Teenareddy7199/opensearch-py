@@ -1,5 +1,5 @@
 # Cluster Client
 
 ```{eval-rst}
-.. autoclass:: opensearchpy.client.cluster.ClusterClient
+.. autoclass:: newopensearchpy.client.cluster.ClusterClient
 ```

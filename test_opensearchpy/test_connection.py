@@ -45,14 +45,14 @@ from mock import Mock, patch
 from requests.auth import AuthBase
 from urllib3._collections import HTTPHeaderDict
 
-from opensearchpy import __versionstr__
-from opensearchpy.compat import reraise_exceptions
-from opensearchpy.connection import (
+from newopensearchpy import __versionstr__
+from newopensearchpy.compat import reraise_exceptions
+from newopensearchpy.connection import (
     Connection,
     RequestsHttpConnection,
     Urllib3HttpConnection,
 )
-from opensearchpy.exceptions import (
+from newopensearchpy.exceptions import (
     ConflictError,
     ConnectionError,
     NotFoundError,
@@ -260,7 +260,7 @@ class TestUrllib3Connection(TestCase):
         con = Urllib3HttpConnection()
         self.assertEqual(
             con._get_default_user_agent(),
-            "opensearch-py/%s (Python %s)" % (__versionstr__, python_version()),
+            "opensearch_py_new/%s (Python %s)" % (__versionstr__, python_version()),
         )
 
     def test_timeout_set(self):
@@ -322,7 +322,7 @@ class TestUrllib3Connection(TestCase):
 
         import requests
 
-        from opensearchpy.helpers.signer import AWSV4SignerAuth
+        from newopensearchpy.helpers.signer import AWSV4SignerAuth
 
         auth = AWSV4SignerAuth(self.mock_session(), region)
         con = RequestsHttpConnection(http_auth=auth)
@@ -340,7 +340,7 @@ class TestUrllib3Connection(TestCase):
     def test_aws_signer_when_region_is_null(self):
         session = self.mock_session()
 
-        from opensearchpy.helpers.signer import AWSV4SignerAuth
+        from newopensearchpy.helpers.signer import AWSV4SignerAuth
 
         with pytest.raises(ValueError) as e:
             AWSV4SignerAuth(session, None)
@@ -356,7 +356,7 @@ class TestUrllib3Connection(TestCase):
     def test_aws_signer_when_credentials_is_null(self):
         region = "us-west-1"
 
-        from opensearchpy.helpers.signer import AWSV4SignerAuth
+        from newopensearchpy.helpers.signer import AWSV4SignerAuth
 
         with pytest.raises(ValueError) as e:
             AWSV4SignerAuth(None, region)
@@ -375,7 +375,7 @@ class TestUrllib3Connection(TestCase):
 
         import requests
 
-        from opensearchpy.helpers.signer import AWSV4SignerAuth
+        from newopensearchpy.helpers.signer import AWSV4SignerAuth
 
         auth = AWSV4SignerAuth(self.mock_session(), region, service)
         con = RequestsHttpConnection(http_auth=auth)
@@ -461,7 +461,7 @@ class TestUrllib3Connection(TestCase):
         c = Urllib3HttpConnection(use_ssl=True, verify_certs=False)
         self.assertIsNone(c.pool.ca_certs)
 
-    @patch("opensearchpy.connection.base.logger")
+    @patch("newopensearchpy.connection.base.logger")
     def test_uncompressed_body_logged(self, logger):
         con = self._get_mock_connection(connection_params={"http_compress": True})
         con.perform_request("GET", "/", body=b'{"example": "body"}')
@@ -683,14 +683,14 @@ class TestRequestsConnection(TestCase):
         con = self._get_mock_connection(status_code=400)
         self.assertRaises(RequestError, con.perform_request, "GET", "/", {}, "")
 
-    @patch("opensearchpy.connection.base.logger")
+    @patch("newopensearchpy.connection.base.logger")
     def test_head_with_404_doesnt_get_logged(self, logger):
         con = self._get_mock_connection(status_code=404)
         self.assertRaises(NotFoundError, con.perform_request, "HEAD", "/", {}, "")
         self.assertEqual(0, logger.warning.call_count)
 
-    @patch("opensearchpy.connection.base.tracer")
-    @patch("opensearchpy.connection.base.logger")
+    @patch("newopensearchpy.connection.base.tracer")
+    @patch("newopensearchpy.connection.base.logger")
     def test_failed_request_logs_and_traces(self, logger, tracer):
         con = self._get_mock_connection(
             response_body=b'{"answer": 42}', status_code=500
@@ -717,8 +717,8 @@ class TestRequestsConnection(TestCase):
             )
         )
 
-    @patch("opensearchpy.connection.base.tracer")
-    @patch("opensearchpy.connection.base.logger")
+    @patch("newopensearchpy.connection.base.tracer")
+    @patch("newopensearchpy.connection.base.logger")
     def test_success_logs_and_traces(self, logger, tracer):
         con = self._get_mock_connection(response_body=b"""{"answer": "that's it!"}""")
         status, headers, data = con.perform_request(
@@ -757,7 +757,7 @@ class TestRequestsConnection(TestCase):
         self.assertEqual('> {"question": "what\'s that?"}', req[0][0] % req[0][1:])
         self.assertEqual('< {"answer": "that\'s it!"}', resp[0][0] % resp[0][1:])
 
-    @patch("opensearchpy.connection.base.logger")
+    @patch("newopensearchpy.connection.base.logger")
     def test_uncompressed_body_logged(self, logger):
         con = self._get_mock_connection(connection_params={"http_compress": True})
         con.perform_request("GET", "/", body=b'{"example": "body"}')
@@ -812,7 +812,7 @@ class TestRequestsConnection(TestCase):
 
         self.assertEqual(request.headers["authorization"], "Basic dXNlcm5hbWU6c2VjcmV0")
 
-    @patch("opensearchpy.connection.base.tracer")
+    @patch("newopensearchpy.connection.base.tracer")
     def test_url_prefix(self, tracer):
         con = self._get_mock_connection({"url_prefix": "/some-prefix/"})
         request = self._get_request(

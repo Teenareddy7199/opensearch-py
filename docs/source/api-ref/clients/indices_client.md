@@ -1,5 +1,5 @@
 # Indices Client
 
 ```{eval-rst}
-.. autoclass:: opensearchpy.client.indices.IndicesClient
+.. autoclass:: newopensearchpy.client.indices.IndicesClient
 ```
