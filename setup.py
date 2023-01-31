@@ -64,7 +64,7 @@ tests_require = [
     "pyyaml",
     "pytest",
     "pytest-cov",
-    "pytest-mock<4.0.0",
+    #"pytest-mock<4.0.0",
     "pytz",
     "botocore;python_version>='3.6'",
 ]
